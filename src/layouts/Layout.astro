@@ -1,0 +1,88 @@
+---
+import '../styles/global.scss';
+
+interface Props {
+    title?: string;
+    description?: string;
+}
+
+const {
+    title = 'HALABURDA & KRAVEL LOGISTIC - Международные грузоперевозки',
+    description = 'Опыт, гибкость, скорость, честность, лояльность и индивидуальный подход'
+} = Astro.props;
+---
+
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta name="description" content={description}>
+    <title>{title}</title>
+
+    <link
+            rel="preload"
+            href="/fonts/manrope/Manrope-Regular.woff2"
+            as="font"
+            type="font/woff2"
+            crossorigin>
+    <link
+            rel="preload"
+            href="/fonts/manrope/Manrope-Bold.woff2"
+            as="font"
+            type="font/woff2"
+            crossorigin>
+    <link
+            rel="preload"
+            href="/fonts/manrope/Manrope-ExtraBold.woff2"
+            as="font"
+            type="font/woff2"
+            crossorigin>
+    <link
+            rel="preload"
+            href="/fonts/manrope/Manrope-Medium.woff2"
+            as="font"
+            type="font/woff2"
+            crossorigin>
+    <style>
+        @font-face {
+            font-family: 'Manrope';
+            src: url('/fonts/manrope/Manrope-Regular.woff2') format('woff2');
+            font-weight: 400;
+            font-style: normal;
+            font-display: swap;
+        }
+        @font-face {
+            font-family: 'Manrope';
+            src: url('/fonts/manrope/Manrope-Medium.woff2') format('woff2');
+            font-weight: 500;
+            font-style: normal;
+            font-display: swap;
+        }
+        @font-face {
+            font-family: 'Manrope';
+            src: url('/fonts/manrope/Manrope-Bold.woff2') format('woff2');
+            font-weight: 700;
+            font-style: normal;
+            font-display: swap;
+        }
+        @font-face {
+            font-family: 'Manrope';
+            src: url('/fonts/manrope/Manrope-ExtraBold.woff2') format('woff2');
+            font-weight: 800;
+            font-style: normal;
+            font-display: swap;
+        }
+
+        body {
+            font-family: 'Manrope', system-ui, -apple-system, sans-serif;
+        }
+    </style>
+
+</head>
+<body>
+<div class="gold-glow"></div>
+<div class="blue-glow"></div>
+<slot />
+</body>
+</html>

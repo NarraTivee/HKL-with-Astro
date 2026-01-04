@@ -1,0 +1,132 @@
+---
+---
+
+<section id="about" class="section about">
+    <div class="container">
+        <h2 class="section-title">
+            О <span>НАС</span>
+        </h2>
+
+        <div class="about-grid">
+            <div class="about-card">
+                <h3>Наши клиенты и специализация</h3>
+                <p>
+                    Среди наших клиентов ведущие компании из СНГ и ЕС. 70% перевозимых грузов — промышленное и
+                    медицинское оборудование, запасные части и техника. За 5 лет самостоятельной деятельности мы
+                    доставили более <strong>10 негабаритных грузов</strong> наземным и морским транспортом. Организовали
+                    поставки линий оборудования для <strong>17 предприятий</strong> в условиях санкций и закрытых границ.
+                </p>
+            </div>
+
+            <div class="about-card">
+                <h3>Развитие компании</h3>
+                <p>С 2021 года оформляем и возим сортировочное и упаковочное оборудование для сельхоз организаций и производителей молочной продукции.</p>
+                <p><strong>С 2022 года</strong> функционирует наш офис в Польше.</p>
+            </div>
+
+            <div class="about-card">
+                <h3>Ключевые проекты</h3>
+                <p>
+                    <strong>2023 год:</strong> Генеральный подряд — поставка 82 единиц оборудования из Германии и Польши
+                    для птицефабрики в Сергиевом Посаде. 43 блока по 8–12 авто.
+                </p>
+                <p>
+                    <strong>2024 год:</strong> Поставка живых взрослых деревьев из Германии в Казахстан для аллеи у Дворца спорта
+                    в Астане — проект под личным контролем президента Казахстана.
+                </p>
+            </div>
+
+            <div class="about-card">
+                <h3>Инфраструктура и прозрачность</h3>
+                <p>
+                    Несколько складов в ЕС и Турции, прямые контракты с ТЛЦ, брокерами и специалистами по ЭПИ.
+                    Фиксируем все манипуляции с грузом на фото/видео и отправляем отчёт заказчику.
+                </p>
+                <p>
+                    Прямой контакт с водителями в пути — никаких посредников, никаких лишних комиссий,
+                    всегда актуальная информация о местонахождении груза.
+                </p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<style lang="scss">
+  .about-grid {
+    display: grid;
+    gap: 2.2rem;
+    max-width: 1200px;
+    margin: 3rem auto 0;
+
+    @media (max-width: $breakpoint-tablet) {
+      gap: 1.8rem;
+      margin-top: 2.5rem;
+    }
+
+    @media (max-width: $breakpoint-mobile) {
+      gap: 1.5rem;
+      margin-top: 2rem;
+    }
+  }
+
+  .about-card {
+    padding-left: 1.6rem;
+    border-left: 4px solid $accent;
+    transition: transform 0.3s ease, border-color 0.3s ease;
+
+    h3 {
+      margin: 0 0 0.9rem;
+      font-size: clamp(1.12rem, 1.4vw, 1.28rem);
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.6px;
+      color: $accent;
+      line-height: 1.2;
+    }
+
+    p {
+      margin: 0 0 0.9rem;
+      font-size: clamp(0.94rem, 1.15vw, 1.02rem);
+      line-height: 1.72;
+      color: rgba(245, 244, 240, 0.94);
+
+      &:last-child { margin-bottom: 0; }
+
+      strong {
+        color: $accent-light;
+        font-weight: 600;
+      }
+    }
+
+    &:hover {
+      border-color: $accent-light;
+      transform: translateX(6px);
+    }
+  }
+
+  @media (max-width: $breakpoint-tablet) {
+    .about-card {
+      padding-left: 1.3rem;
+      border-left-width: 3px;
+    }
+  }
+
+  @media (max-width: $breakpoint-mobile) {
+    .about-card {
+      padding-left: 1.1rem;
+
+      h3 { font-size: 1.05rem; }
+      p  { font-size: 0.94rem; line-height: 1.65; }
+    }
+  }
+
+  @media (max-width: 480px) {
+    .about-card {
+      padding-left: 1rem;
+      border-left-width: 3px;
+
+      h3 { font-size: 1rem; }
+      p  { font-size: 0.91rem; }
+    }
+  }
+</style>

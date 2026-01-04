@@ -1,0 +1,265 @@
+---
+import {Image} from 'astro:assets';
+import welcomeBg from '../../assets/bg.jpg';
+import logoSvg from '../../assets/logo-hkl.svg';
+import Header from '../ui/Header.astro';
+---
+
+<section class="welcome">
+    <div class="welcome__container container container--hero">
+        <div class="welcome__bg">
+            <Image
+                    src={welcomeBg}
+                    alt="Фон грузоперевозки"
+                    width={1920}
+                    height={1080}
+                    quality={70}
+                    format="webp"
+                    loading="eager"
+                    class="welcome__bg-image"
+            />
+        </div>
+
+        <Header/>
+
+        <div class="welcome__content">
+            <div class="welcome__text-card">
+                <div class="welcome__title">
+                    <h1>
+                        HALABURDA <br/>
+                        <span>& LOGISTIC</span> <br/>
+                        KRAVEL
+                    </h1>
+                </div>
+
+                <div class="welcome__description">
+                    <p>
+                        Опыт, гибкость, скорость, честность, лояльность и индивидуальный подход — это все про нас.
+                        Личная ответственность и вовлеченность руководителей в каждую перевозку — гаранты высокого
+                        качества.
+                        Поэтому свыше двух десятков клиентов работают с нами постоянно уже больше 10 лет!
+                    </p>
+                </div>
+            </div>
+
+            <div class="welcome__logo">
+                <img
+                        src={logoSvg.src}
+                        alt="HK Logistic"
+                        width="340"
+                        height="340"
+                        loading="eager"
+                />
+            </div>
+        </div>
+    </div>
+</section>
+
+<style lang="scss">
+  .welcome {
+    width: 100%;
+    min-height: 100vh;
+    padding: 2rem;
+    margin-bottom: 3rem;
+    display: flex;
+    align-items: center;
+
+    &__container {
+      width: 100%;
+      min-height: 90vh;
+      border-radius: 26px;
+      position: relative;
+      overflow: hidden;
+      padding: 2rem;
+      display: flex;
+      flex-direction: column;
+
+      background: rgba(13, 22, 35, 0.92);
+      box-shadow: 0 20px 50px rgba(0, 0, 0, 0.6);
+    }
+
+    &__bg {
+      position: absolute;
+      inset: 0;
+      z-index: 0;
+      overflow: hidden;
+      border-radius: 26px;
+    }
+
+    &__bg-image {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center;
+    }
+
+    &__bg::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(135deg,
+              rgba(0, 0, 0, 0.65) 0%,
+              rgba(10, 15, 30, 0.5) 50%,
+              rgba(0, 0, 0, 0.7) 100%
+      );
+      border-radius: 26px;
+    }
+
+    &__content {
+      flex: 1;
+      display: grid;
+      grid-template-columns: 1.1fr 0.9fr;
+      gap: 2.5rem;
+      align-items: center;
+      position: relative;
+      z-index: 2;
+    }
+
+    &__text-card {
+      background: rgba(20, 25, 40, 0.65);
+      border-radius: 18px;
+      padding: 2.2rem;
+      box-shadow: 0 15px 35px rgba(0, 0, 0, 0.5);
+    }
+
+    &__title h1 {
+      margin: 0;
+      font-weight: 900;
+      text-transform: uppercase;
+      font-size: clamp(2.2rem, 5vw, 3.8rem);
+      line-height: 1.1;
+      color: $text-light;
+      letter-spacing: 1px;
+
+      span {
+        color: $accent;
+        font-weight: 700;
+      }
+    }
+
+    &__description {
+      margin-top: 1rem;
+      padding-left: 1rem;
+      border-left: 3px solid $accent;
+
+      p {
+        margin: 0;
+        color: $text-light;
+        font-size: clamp(1rem, 1.2vw, 1.15rem);
+        line-height: 1.65;
+      }
+    }
+
+    &__logo {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+
+      img {
+        width: clamp(200px, 26vw, 340px);
+        height: auto;
+        /* Убираем drop-shadow — он очень тяжёлый */
+        filter: none;
+      }
+    }
+  }
+
+  /* Убираем все анимации полностью */
+  @keyframes fadeInLeft
+
+  ,
+  fadeInRight {
+    from, to {
+      opacity: 1;
+      transform: none;
+    }
+  }
+
+  /* Все медиа-запросы оставлены без изменений — они не влияют на производительность */
+  @media (max-width: $breakpoint-large) {
+    .welcome__content {
+      gap: 2rem;
+    }
+    .welcome__text-card {
+      padding: 2rem;
+    }
+  }
+
+  @media (max-width: $breakpoint-desktop) {
+    .welcome {
+      padding: 1.5rem;
+      min-height: auto;
+
+      &__container {
+        min-height: auto;
+        padding: 1.5rem;
+        border-radius: 20px;
+      }
+
+      &__content {
+        grid-template-columns: 1fr;
+        gap: 2.5rem;
+      }
+
+      &__logo {
+        order: -1;
+
+        img {
+          width: clamp(160px, 40vw, 220px);
+        }
+      }
+
+      &__text-card {
+        padding: 1.8rem;
+      }
+    }
+  }
+
+  @media (max-width: $breakpoint-mobile) {
+    .welcome {
+      padding: 1rem;
+      margin-bottom: 2rem;
+
+      &__container {
+        padding: 1.2rem;
+        border-radius: 16px;
+      }
+
+      &__logo img {
+        width: clamp(140px, 35vw, 180px);
+      }
+
+      &__text-card {
+        padding: 1.5rem;
+      }
+
+      &__title h1 {
+        font-size: clamp(1.6rem, 8vw, 2.2rem);
+      }
+    }
+  }
+
+  @media (max-width: 480px) {
+    .welcome {
+      padding: 0.8rem;
+
+      &__container {
+        padding: 1rem;
+        border-radius: 14px;
+      }
+
+      &__logo img {
+        width: 130px;
+      }
+
+      &__text-card {
+        padding: 1.2rem;
+        border-radius: 14px;
+      }
+
+      &__title h1 {
+        font-size: 1.5rem;
+      }
+    }
+  }
+</style>

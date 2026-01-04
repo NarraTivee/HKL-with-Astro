@@ -1,0 +1,107 @@
+---
+const services = [
+    'Консультируем по вопросам организации перевозки',
+    'Делаем предварительный расчёт стоимости и дополнительных услуг',
+    'Адаптируем условия работы под ваши пожелания',
+    'Помогаем оформить полный пакет документов',
+    'Полностью ведём перевозку: контроль и связь на всех этапах',
+    'Ежедневно информируем о местонахождении груза'
+];
+---
+
+<section id="services" class="section services">
+    <div class="container">
+        <h2 class="section-title">УСЛУГИ</h2>
+
+        <div class="section-description">
+            <p>
+                Мы — <span class="highlight">международная компания HK Logistic</span>,<br />
+                предлагаем полный спектр высококачественных услуг по грузоперевозкам.<br />
+                Индивидуальный подход, контроль каждого этапа и забота о вашем грузе — наш главный приоритет.
+            </p>
+        </div>
+
+        <ul class="services-list" aria-label="Список предоставляемых услуг">
+            {services.map((service) => (
+                    <li class="services-list__item">
+                        <span class="services-list__bullet">●</span>
+                        {service}
+                    </li>
+            ))}
+        </ul>
+    </div>
+</section>
+
+<style lang="scss">
+  .highlight {
+    color: $accent;
+    font-weight: 700;
+  }
+
+  .section-description {
+    margin: 1.5rem auto 3rem;
+    max-width: 1200px;
+    font-size: clamp(1.05rem, 2vw, 1.15rem);
+    line-height: 1.7;
+    color: rgba(245, 244, 240, 0.92);
+
+    @media (max-width: $breakpoint-mobile) {
+      margin: 1.2rem auto 2.5rem;
+    }
+  }
+
+  .services-list {
+    list-style: none;
+    padding: 0;
+    display: grid;
+    gap: 1.1rem;
+    max-width: 900px;
+
+    &__item {
+      position: relative;
+      padding-left: 2.2rem;
+      font-size: clamp(0.98rem, 1.25vw, 1.08rem);
+      line-height: 1.75;
+      color: $text-light;
+    }
+
+    &__bullet {
+      position: absolute;
+      left: 0;
+      color: $accent;
+      transition: transform 0.3s ease;
+    }
+  }
+
+  @media (max-width: $breakpoint-tablet) {
+    .services-list {
+      gap: 1rem;
+      &__item {
+        padding-left: 2rem;
+      }
+    }
+  }
+
+  @media (max-width: $breakpoint-mobile) {
+    .services-list {
+      gap: 0.9rem;
+      &__item {
+        padding-left: 1.8rem;
+        font-size: 0.98rem;
+      }
+      &__bullet {
+        font-size: 1rem;
+      }
+    }
+  }
+
+  @media (max-width: 480px) {
+    .services-list {
+      gap: 0.85rem;
+      &__item {
+        padding-left: 1.6rem;
+        font-size: 0.95rem;
+      }
+    }
+  }
+</style>

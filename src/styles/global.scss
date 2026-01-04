@@ -1,0 +1,141 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  color: #d9d9d9;
+  background-color: #0d1117;
+  overflow-x: hidden;
+  position: relative;
+  min-height: 100vh;
+  font-family: 'Manrope', sans-serif;
+}
+
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  background:
+          radial-gradient(circle at 20% 80%, rgba(20, 30, 55, 0.6) 0%, transparent 60%),
+          radial-gradient(circle at 85% 20%, rgba(40, 35, 60, 0.4) 0%, transparent 55%),
+          #0d1117;
+  z-index: -3;
+  pointer-events: none;
+}
+
+body::after {
+  content: "";
+  position: fixed;
+  inset: 0;
+  background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="100" height="100"><filter id="n"><feTurbulence type="fractalNoise" baseFrequency="0.9" numOctaves="4" stitchTiles="stitch"/><feColorMatrix type="saturate" values="0"/></filter><rect width="100" height="100" filter="url(%23n)" opacity="0.035"/></svg>');
+  opacity: 0.7;
+  mix-blend-mode: soft-light;
+  pointer-events: none;
+  z-index: -2;
+}
+
+.gold-glow {
+  position: fixed;
+  top: -60%;
+  right: -45%;
+  width: 1600px;
+  height: 1600px;
+  border-radius: 50%;
+  background: radial-gradient(circle farthest-corner,
+          rgba(245, 195, 110, 0.22) 0%,
+          rgba(225, 170, 80, 0.12)  40%,
+          rgba(190, 140, 60, 0.04)  65%,
+          transparent 85%
+  );
+  filter: blur(160px);
+  z-index: -1;
+  pointer-events: none;
+}
+
+.blue-glow {
+  position: fixed;
+  bottom: -50%;
+  left: -40%;
+  width: 1400px;
+  height: 1400px;
+  border-radius: 50%;
+  background: radial-gradient(circle,
+          rgba(100, 160, 255, 0.14) 0%,
+          rgba(80, 130, 230, 0.07) 45%,
+          transparent 75%
+  );
+  filter: blur(150px);
+  z-index: -1;
+  pointer-events: none;
+}
+
+// ОБЩИЕ КЛАССЫ ДЛЯ СЕКЦИЙ
+.section {
+  width: 100%;
+  position: relative;
+  padding: $section-padding;
+
+  @media (max-width: $breakpoint-tablet) {
+    padding: $section-padding-mobile;
+  }
+}
+
+.container {
+  max-width: $container-max-width;
+  margin: 0 auto;
+  padding: 0 $container-padding;
+
+  @media (max-width: $breakpoint-tablet) {
+    padding: 0 $container-padding-mobile;
+  }
+
+  &--hero {
+    max-width: $container-max-width-hero;
+  }
+}
+
+// ОБЩИЕ СТИЛИ ДЛЯ ЗАГОЛОВКОВ СЕКЦИЙ
+.section-title {
+  margin: 0 0 2rem 0;
+  font-weight: 900;
+  text-transform: uppercase;
+  font-size: clamp(2rem, 5vw, 3.2rem);
+  line-height: 1.1;
+  color: $text-light;
+  letter-spacing: 1.5px;
+
+  span {
+    color: $accent;
+    font-weight: 700;
+    opacity: 0.95;
+  }
+
+  @media (max-width: $breakpoint-mobile) {
+    margin-bottom: 1.5rem;
+  }
+}
+
+// ОБЩИЕ СТИЛИ ДЛЯ ОПИСАНИЙ
+.section-description {
+  margin-bottom: 2.5rem;
+  padding-left: 1.2rem;
+  border-left: 4px solid $accent;
+  max-width: 900px;
+
+  p {
+    font-size: clamp(0.95rem, 1.2vw, 1.05rem);
+    line-height: 1.65;
+    color: $text-muted;
+    margin: 0;
+  }
+
+  @media (max-width: $breakpoint-mobile) {
+    margin-bottom: 2rem;
+  }
+}

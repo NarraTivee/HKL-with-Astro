@@ -1,0 +1,140 @@
+---
+const workflowSteps = [
+    'Получаем запрос с данными о грузе',
+    'Уточняем все детали и пожелания',
+    'Подбираем оптимальный транспорт и маршрут',
+    'Согласовываем стоимость и подписываем договор',
+    'Берём перевозку под полный контроль',
+    'Доставляем груз точно в срок и получаем оплату'
+];
+---
+
+<section id="workflow" class="section workflow">
+    <div class="container">
+        <div class="workflow__inner">
+            <!-- Заголовок -->
+            <div class="workflow__header">
+                <h2 class="section-title">
+                    КАК МЫ<br /><span>РАБОТАЕМ</span>
+                </h2>
+            </div>
+
+            <!-- Шаги -->
+            <ol class="workflow__list">
+                {workflowSteps.map((step, index) => (
+                        <li class="workflow__item">
+                            <span class="workflow__number">{index + 1}</span>
+                            <p class="workflow__text">{step}</p>
+                        </li>
+                ))}
+            </ol>
+        </div>
+    </div>
+</section>
+
+<style lang="scss">
+  .workflow__inner {
+    display: grid;
+    grid-template-columns: 1fr 1.5fr;
+    gap: 5rem;
+    align-items: start;
+
+    @media (max-width: $breakpoint-large) {
+      grid-template-columns: 1fr;
+      gap: 3rem;
+    }
+  }
+
+  .workflow__list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+  }
+
+  .workflow__item {
+    display: grid;
+    grid-template-columns: 15px 1fr;
+    align-items: start;
+    gap: 1.5rem;
+  }
+
+  .workflow__number {
+    font-size: 1.8rem;
+    font-weight: 700;
+    color: $accent;
+    line-height: 1.2;
+  }
+
+  .workflow__text {
+    margin: 0;
+    font-size: clamp(1rem, 1.3vw, 1.1rem);
+    line-height: 1.7;
+    color: $text-light;
+    padding-top: 0.2rem;
+  }
+
+  @media (max-width: $breakpoint-tablet) {
+    .workflow__inner {
+      gap: 2.5rem;
+    }
+
+    .workflow__list {
+      gap: 1.3rem;
+    }
+
+    .workflow__item {
+      grid-template-columns: 45px 1fr;
+      gap: 1.2rem;
+    }
+
+    .workflow__number {
+      font-size: 1.6rem;
+    }
+
+    .workflow__text {
+      font-size: 1rem;
+    }
+  }
+
+  @media (max-width: $breakpoint-mobile) {
+    .workflow__inner {
+      gap: 2rem;
+    }
+
+    .workflow__list {
+      gap: 1.2rem;
+    }
+
+    .workflow__item {
+      grid-template-columns: 40px 1fr;
+      gap: 1rem;
+    }
+
+    .workflow__number {
+      font-size: 1.5rem;
+    }
+
+    .workflow__text {
+      font-size: 0.95rem;
+      line-height: 1.6;
+    }
+  }
+
+  @media (max-width: 480px) {
+    .workflow__item {
+      grid-template-columns: 35px 1fr;
+      gap: 0.9rem;
+    }
+
+    .workflow__number {
+      font-size: 1.4rem;
+    }
+
+    .workflow__text {
+      font-size: 0.9rem;
+    }
+  }
+</style>
