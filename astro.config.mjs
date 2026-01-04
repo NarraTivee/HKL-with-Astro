@@ -2,7 +2,7 @@ import { defineConfig } from 'astro/config';
 
 export default defineConfig({
     site: "https://NarraTivee.github.io",
-    // base: "/HKL-with-Astro",
+    base: "/HKL-with-Astro/",
     integrations: [],
     vite: {
         css: {
