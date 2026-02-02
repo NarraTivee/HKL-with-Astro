@@ -1,112 +1,118 @@
 ---
 // НАШИ РАБОТЫ — чисто, ровно, быстро, только hover
-import { Image } from 'astro:assets';
-import work1 from '../../assets/works/1.jpg';
-import work2 from '../../assets/works/2.jpg';
-import work3 from '../../assets/works/3.jpg';
-import work4 from '../../assets/works/4.jpg';
-import work5 from '../../assets/works/5.jpg';
-import work6 from '../../assets/works/6.jpg';
+import { Image } from 'astro:assets'
+import work1 from '../../assets/works/1.jpg'
+import work2 from '../../assets/works/2.jpg'
+import work3 from '../../assets/works/3.jpg'
+import work4 from '../../assets/works/4.jpg'
+import work5 from '../../assets/works/5.jpg'
+import work6 from '../../assets/works/6.jpg'
 
 const works = [
-    { img: work1, alt: 'Погрузка негабаритного оборудования в Германии' },
-    { img: work2, alt: 'Доставка медицинского оборудования в Польшу' },
-    { img: work3, alt: 'Перевозка линии розлива в Казахстан' },
-    { img: work4, alt: 'Негабарит: 12-метровые балки из Турции' },
-    { img: work5, alt: 'Сборный груз из 42 отправок — консолидация в ЕС' },
-    { img: work6, alt: 'Живые деревья из Германии в Астану' },
-];
+	{ img: work1, alt: 'Негабаритная поставка Бельгия - Казахстан' },
+	{ img: work2, alt: 'Поставка линии оборудования Россия - Кыргызстан' },
+	{ img: work3, alt: 'Поставка техники из Германии в Беларусь через Турцию' },
+	{ img: work4, alt: 'Перевозка комбайна из Германии в Польшу' },
+	{ img: work5, alt: 'Доставка пипистреля из Грузии в Россию' },
+	{ img: work6, alt: 'Перевозка живых деревьев из Германии в Казахстан' },
+]
 ---
 
-<section id="works" class="section works">
-    <div class="container">
-        <h2 class="section-title">НАШИ <span>РАБОТЫ</span></h2>
+<section id='works' class='section works'>
+	<div class='container'>
+		<h2 class='section-title'>НАШИ <span>РАБОТЫ</span></h2>
 
-        <div class="works-grid">
-            {works.map((work) => (
-                    <div class="works-item">
-                        <Image
-                                src={work.img}
-                                alt={work.alt}
-                                width={900}
-                                height={600}
-                                quality={80}
-                                format="webp"
-                                loading="lazy"
-                                class="works-item__img"
-                        />
-                        <div class="works-item__overlay">
-                            <span>{work.alt}</span>
-                        </div>
-                    </div>
-            ))}
-        </div>
-    </div>
+		<div class='works-grid'>
+			{
+				works.map((work) => (
+					<div class='works-item'>
+						<Image
+							src={work.img}
+							alt={work.alt}
+							width={900}
+							height={600}
+							quality={80}
+							format='webp'
+							loading='lazy'
+							class='works-item__img'
+						/>
+						<div class='works-item__overlay'>
+							<span>{work.alt}</span>
+						</div>
+					</div>
+				))
+			}
+		</div>
+	</div>
 </section>
 
-<style lang="scss">
-  .works-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
-    gap: 2rem;
-    margin-top: 3rem;
-  }
+<style lang='scss'>
+	.works-grid {
+		display: grid;
+		grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
+		gap: 2rem;
+		margin-top: 3rem;
+	}
 
-  .works-item {
-    position: relative;
-    border-radius: 20px;
-    overflow: hidden;
-    box-shadow: 0 12px 32px rgba(0, 0, 0, 0.45);
-    background: #000;
-    aspect-ratio: 3 / 2; /* ← ВСЕ КАРТОЧКИ ОДНОЙ ВЫСОТЫ */
-    transition: all 0.4s ease;
+	.works-item {
+		position: relative;
+		border-radius: 20px;
+		overflow: hidden;
+		box-shadow: 0 12px 32px rgba(0, 0, 0, 0.45);
+		background: #000;
+		aspect-ratio: 3 / 2; /* ← ВСЕ КАРТОЧКИ ОДНОЙ ВЫСОТЫ */
+		transition: all 0.4s ease;
 
-    &:hover {
-      transform: translateY(-10px);
-      box-shadow: 0 25px 50px rgba(0, 0, 0, 0.65);
+		&:hover {
+			transform: translateY(-10px);
+			box-shadow: 0 25px 50px rgba(0, 0, 0, 0.65);
 
-      .works-item__img {
-        transform: scale(1.08);
-      }
+			.works-item__img {
+				transform: scale(1.08);
+			}
 
-      .works-item__overlay {
-        opacity: 1;
-      }
-    }
-  }
+			.works-item__overlay {
+				opacity: 1;
+			}
+		}
+	}
 
-  .works-item__img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    transition: transform 0.7s cubic-bezier(0.25, 0.46, 0.45, 0.94);
-  }
+	.works-item__img {
+		width: 100%;
+		height: 100%;
+		object-fit: cover;
+		transition: transform 0.7s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+	}
 
-  .works-item__overlay {
-    position: absolute;
-    inset: 0;
-    background: linear-gradient(135deg, rgba(13, 27, 42, 0.6), rgba(224, 167, 94, 0.4));
-    display: flex;
-    align-items: flex-end;
-    padding: 1.8rem 1.4rem;
-    opacity: 0;
-    transition: opacity 0.4s ease;
+	.works-item__overlay {
+		position: absolute;
+		inset: 0;
+		background: linear-gradient(
+			135deg,
+			rgba(13, 27, 42, 0.6),
+			rgba(224, 167, 94, 0.4)
+		);
+		display: flex;
+		align-items: flex-end;
+		padding: 1.8rem 1.4rem;
+		opacity: 0;
+		transition: opacity 0.4s ease;
 
-    span {
-      color: white;
-      font-size: 1rem;
-      font-weight: 600;
-      text-shadow: 0 2px 8px rgba(0, 0, 0, 0.7);
-    }
-  }
+		span {
+			color: white;
+			font-size: 1rem;
+			font-weight: 600;
+			text-shadow: 0 2px 8px rgba(0, 0, 0, 0.7);
+		}
+	}
 
-  /* На мобильных — эффект только при тапе (всё равно красиво) */
-  @media (max-width: $breakpoint-mobile) {
-    .works-grid {
-      gap: 1.6rem;
-    }
-    .works-item:hover {
-      transform: translateY(-6px);
-    }
-  }
+	/* На мобильных — эффект только при тапе (всё равно красиво) */
+	@media (max-width: $breakpoint-mobile) {
+		.works-grid {
+			gap: 1.6rem;
+		}
+		.works-item:hover {
+			transform: translateY(-6px);
+		}
+	}
 </style>
