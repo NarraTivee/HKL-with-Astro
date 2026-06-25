@@ -11,6 +11,15 @@
             </a>
         </div>
 
+        <!-- Language Switcher -->
+        <div class="header__lang-switcher">
+            <button class="header__lang-btn active" data-lang="ru">RU</button>
+            <span class="header__lang-divider">/</span>
+            <button class="header__lang-btn" data-lang="eu">EU</button>
+            <span class="header__lang-divider">/</span>
+            <button class="header__lang-btn" data-lang="pl">PL</button>
+        </div>
+
         <!-- Desktop Navigation -->
         <nav class="header__nav-desktop" aria-label="Основное меню">
             <ul class="header__nav-list">
@@ -45,6 +54,13 @@
     </div>
 
     <nav class="mobile-menu__nav">
+        <div class="mobile-menu__lang-switcher">
+            <button class="mobile-menu__lang-btn active" data-lang="ru">RU</button>
+            <span class="mobile-menu__lang-divider">/</span>
+            <button class="mobile-menu__lang-btn" data-lang="eu">EU</button>
+            <span class="mobile-menu__lang-divider">/</span>
+            <button class="mobile-menu__lang-btn" data-lang="pl">PL</button>
+        </div>
         <ul class="mobile-menu__list">
             <li><a href="#services" class="mobile-menu__link">Услуги</a></li>
             <li><a href="#about" class="mobile-menu__link">О нас</a></li>
@@ -75,6 +91,41 @@
       border-radius: 16px;
       box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3);
       backdrop-filter: blur(10px);
+    }
+
+    &__lang-switcher {
+      display: flex;
+      align-items: center;
+      gap: 0.3rem;
+    }
+
+    &__lang-btn {
+      background: none;
+      border: none;
+      color: rgba(255, 255, 255, 0.5);
+      font-size: 0.85rem;
+      font-weight: 600;
+      cursor: pointer;
+      padding: 0.3rem 0.4rem;
+      border-radius: 6px;
+      transition: all 0.25s ease;
+      letter-spacing: 0.5px;
+
+      &:hover {
+        color: rgba(255, 255, 255, 0.9);
+        background: rgba(224, 167, 94, 0.1);
+      }
+
+      &.active {
+        color: $accent;
+        background: rgba(224, 167, 94, 0.15);
+      }
+    }
+
+    &__lang-divider {
+      color: rgba(255, 255, 255, 0.25);
+      font-size: 0.8rem;
+      user-select: none;
     }
 
     &__logo-link {
@@ -233,6 +284,47 @@
       overflow-y: auto;
     }
 
+    &__lang-switcher {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.5rem;
+      padding-bottom: 1.5rem;
+      margin-bottom: 1rem;
+      border-bottom: 1px solid rgba(224, 167, 94, 0.1);
+    }
+
+    &__lang-btn {
+      background: none;
+      border: 1px solid rgba(255, 255, 255, 0.15);
+      color: rgba(255, 255, 255, 0.6);
+      font-size: 0.9rem;
+      font-weight: 600;
+      cursor: pointer;
+      padding: 0.5rem 1rem;
+      border-radius: 8px;
+      transition: all 0.25s ease;
+      letter-spacing: 0.5px;
+
+      &:hover {
+        color: rgba(255, 255, 255, 0.9);
+        border-color: rgba(224, 167, 94, 0.3);
+        background: rgba(224, 167, 94, 0.08);
+      }
+
+      &.active {
+        color: $accent;
+        border-color: $accent;
+        background: rgba(224, 167, 94, 0.15);
+      }
+    }
+
+    &__lang-divider {
+      color: rgba(255, 255, 255, 0.2);
+      font-size: 0.85rem;
+      user-select: none;
+    }
+
     &__list {
       list-style: none;
       margin: 0;
@@ -387,5 +479,19 @@
         if (e.key === 'Escape' && mobileMenu?.classList.contains('active')) {
             closeMenu();
         }
+    });
+
+    // Language Switcher
+    const langButtons = document.querySelectorAll('[data-lang]');
+    langButtons.forEach(btn => {
+        btn.addEventListener('click', () => {
+            const lang = btn.getAttribute('data-lang');
+            document.querySelectorAll(`[data-lang="${lang}"]`).forEach(b => {
+                b.closest('.header__lang-switcher, .mobile-menu__lang-switcher')
+                    ?.querySelectorAll('.header__lang-btn, .mobile-menu__lang-btn')
+                    .forEach(innerBtn => innerBtn.classList.remove('active'));
+                b.classList.add('active');
+            });
+        });
     });
 </script>
